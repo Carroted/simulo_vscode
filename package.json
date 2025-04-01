@@ -1,0 +1,82 @@
+{
+  "name": "simulo-vscode",
+  "displayName": "Simulo",
+  "description": "Simulo Lua in VSCode with launch.json etc etc",
+  "version": "0.1.0",
+  "publisher": "carroted",
+  "repository": "https://github.com/Carroted/simulo_vscode",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Debuggers"
+  ],
+  "activationEvents": [
+    "onDebug"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "debuggers": [
+      {
+        "type": "simulo",
+        "label": "Simulo Debug",
+        "languages": ["lua"],
+        "configurationAttributes": {
+          "launch": {
+            "required": ["program"],
+            "properties": {
+              "program": {
+                "type": "string",
+                "description": "Path to the Lua file to run.",
+                "default": "${file}"
+              },
+              "port": {
+                "type": "number",
+                "description": "Port for Simulo HTTP endpoint",
+                "default": 54229
+              },
+              "host": {
+                "type": "string",
+                "description": "Host for Simulo HTTP endpoint",
+                "default": "localhost"
+              }
+            }
+          }
+        },
+        "initialConfigurations": [
+          {
+            "type": "simulo",
+            "request": "launch",
+            "name": "Run Simulo Lua file",
+            "program": "${file}"
+          }
+        ],
+        "configurationSnippets": [
+          {
+            "label": "Simulo: Run Lua file",
+            "description": "Run a Lua file with Simulo",
+            "body": {
+              "type": "simulo",
+              "request": "launch",
+              "name": "Run Simulo Lua file",
+              "program": "^\"\\${file}\""
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/vscode": "^1.60.0",
+    "typescript": "^4.5.4",
+    "vsce": "^2.6.7"
+  }
+}
