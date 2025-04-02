@@ -50,6 +50,7 @@ class SimuloConfigurationProvider implements vscode.DebugConfigurationProvider {
                 config.program = '${file}';
                 config.host = 'localhost';
                 config.port = 54229;
+                config.focus = true;
             }
         }
 
@@ -148,7 +149,7 @@ class SimuloDebugAdapter implements vscode.DebugAdapter {
     private launchRequest(message: any): void {
         console.log('SimuloDebugAdapter handling launch request');
 
-        const { program, host = 'localhost', port = 54229 } = this.config;
+        const { program, host = 'localhost', port = 54229, focus = true } = this.config;
 
         // Resolve file path variables
         let resolvedProgram = program;
@@ -178,7 +179,7 @@ class SimuloDebugAdapter implements vscode.DebugAdapter {
 
         // Encode file path for the URL
         const encodedPath = encodeURIComponent(resolvedProgram);
-        const url = `http://${host}:${port}/run?file=${encodedPath}`;
+        const url = `http://${host}:${port}/run?file=${encodedPath}&focus=${focus}`;
 
         console.log(`Making HTTP request to: ${url}`);
 

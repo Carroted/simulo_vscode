@@ -31,6 +31,11 @@
                 "description": "Path to the Lua file to run.",
                 "default": "${file}"
               },
+              "focus": {
+                "type": "boolean",
+                "description": "Focuses the Simulo window",
+                "default": true
+              },
               "port": {
                 "type": "number",
                 "description": "Port for Simulo HTTP endpoint",
@@ -49,7 +54,8 @@
             "type": "simulo",
             "request": "launch",
             "name": "Run Simulo Lua file",
-            "program": "${file}"
+            "program": "${file}",
+            "focus": true
           }
         ],
         "configurationSnippets": [
@@ -60,7 +66,8 @@
               "type": "simulo",
               "request": "launch",
               "name": "Run Simulo Lua file",
-              "program": "^\"\\${file}\""
+              "program": "^\"\\${file}\"",
+              "focus": true
             }
           }
         ]

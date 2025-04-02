@@ -12,7 +12,8 @@ You can put something like this in a `.vscode/launch.json`:
             "type": "simulo",
             "request": "launch",
             "name": "Run Active File (Simulo)",
-            "program": "${file}"
+            "program": "${file}",
+            "focus": true
         }
     ]
 }
@@ -30,7 +31,8 @@ You can make your own custom configurations, like having several to run specific
             "type": "simulo",
             "request": "launch",
             "name": "Run My Code",
-            "program": "./scripts/my_code/main.lua"
+            "program": "./scripts/my_code/main.lua",
+            "focus": false
         },
         {
             "type": "simulo",
