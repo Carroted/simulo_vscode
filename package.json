@@ -2,7 +2,7 @@
   "name": "simulo-vscode",
   "displayName": "Simulo",
   "description": "Simulo Lua in VSCode with launch.json etc etc",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "carroted",
   "repository": "https://github.com/Carroted/simulo_vscode",
   "icon": "icon.png",
@@ -39,7 +39,7 @@
               "port": {
                 "type": "number",
                 "description": "Port for Simulo HTTP endpoint",
-                "default": 54229
+                "default": 64229
               },
               "host": {
                 "type": "string",

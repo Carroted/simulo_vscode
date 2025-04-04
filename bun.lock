@@ -1,8 +1,7 @@
 {
-  "lockfileVersion": 1,
+  "lockfileVersion": 0,
   "workspaces": {
     "": {
-      "name": "simulo-vscode",
       "devDependencies": {
         "@types/node": "^16.11.7",
         "@types/vscode": "^1.60.0",
